@@ -206,19 +206,6 @@ Using Ichimoku Cloud components:
 - **Key Libraries:**
   - `pandas`, `numpy`, `scikit-learn`, `lightgbm`, `hmmlearn`
 
-### Installation
-Clone this repository and install dependencies:
-```bash
-git clone https://github.com/your-repo/bond-yield-prediction.git
-cd bond-yield-prediction
-pip install -r requirements.txt
-```
-
-### Running the Model
-```bash
-python main.py --data ./data/sovereign_bonds.csv --model Lasso
-```
-
 ---
 
 ## Acknowledgments

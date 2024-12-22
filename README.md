@@ -6,7 +6,7 @@ A sophisticated quantitative analysis framework for sovereign bond markets that 
 ## Team
 
 <div align="center">
-<img src="imgages/ganesh_img.jpg" width="200" height="auto" alt="Ganesh Ashwin Vadari Venkata">
+<img src="images/ganesh_img.jpg" width="200" height="auto" alt="Ganesh Ashwin Vadari Venkata">
 <p><strong>Ganesh Ashwin Vadari Venkata</strong></p>
 </div>
 
@@ -41,7 +41,7 @@ A highly motivated  individual with a strong academic background in financial ma
 ---
 
 <div align="center">
-<img src="img/DSC05522.JPG" width="200" height="auto" alt="Yadvesh Yadav">
+<img src="images/DSC05522.JPG" width="200" height="auto" alt="Yadvesh Yadav">
 <p><strong>Yadvesh Yadav</strong></p>
 </div>
 

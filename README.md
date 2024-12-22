@@ -1,6 +1,6 @@
 # Sovereign Bonds Analysis Strategy Project (FIN 554)
 
-A sophisticated quantitative analysis framework for sovereign bond markets that combines machine learning techniques with traditional financial indicators. This research explores the predictive power of advanced modeling techniques while incorporating both technical and macroeconomic factors to develop robust trading strategies.
+This repository contains the complete framework, data, and analysis for predicting sovereign 10-Year bond yields using advanced machine learning techniques. By integrating macroeconomic indicators and technical analysis, we explore whether Lasso regression and LightGBM models outperform traditional methods in different markets, including the U.S. and Australia.
 
 ---
 ## Team
@@ -55,95 +55,175 @@ As a Master's student in Financial Mathematics at the University of Illinois Urb
 
 ## Project Overview
 
-Our research investigates whether machine learning models, specifically Lasso and LightGBM, can outperform traditional forecasting methods for sovereign 10-Year bonds across different countries. The approach integrates a diverse set of inputs, from macroeconomic variables to momentum-based technical indicators, creating a comprehensive analytical framework for bond yield prediction.
+This research evaluates the predictive power of machine learning models—specifically Lasso and LightGBM—for forecasting sovereign bond yields. It incorporates diverse inputs, including:
+- **Macroeconomic indicators:** CPI, PPI, Federal Funds Rate, Unemployment Rate.
+- **Technical indicators:** Moving averages, RSI, MACD, Ichimoku Cloud.
 
-### Research Foundations
+Key focus areas include:
+- **Preprocessing techniques:** Winsorizing, exponential smoothing.
+- **Signal generation:** Combining machine learning outputs with Ichimoku Cloud indicators.
+- **Regime detection:** Classifying high and low volatility market conditions using Hidden Markov Models (HMM).
 
-The project builds upon existing literature in both bond-based and stock-based studies. Notable influences include Dubrov's (2015) work on Monte Carlo simulations for exotic bond pricing and Ganguli and Dunnmon's (2017) extensive study of U.S. corporate bond price prediction. We extend these approaches by incorporating modern machine learning techniques and developing a more sophisticated signal generation framework.
+This research builds upon existing bond pricing literature and extends it with modern ML frameworks.
 
-Our methodology addresses several critical hypotheses about market behavior and model performance. The primary investigation focuses on whether preprocessing techniques such as winsorizing and exponential smoothing can significantly improve model performance when applied to sovereign bond datasets. This is particularly relevant given the complex nature of bond market dynamics and the presence of multiple market regimes.
+---
+
+## Research Foundations
+
+### Key Influences
+1. **Dubrov (2015):** Monte Carlo simulations for exotic bond pricing.
+2. **Ganguli & Dunnmon (2017):** Corporate bond price prediction using regression and neural networks.
+3. **Hanna (2016):** Predicting junk bond defaults with Random Forest models.
+
+### Hypotheses
+1. **Main Hypothesis:** Machine learning models can outperform traditional forecasting techniques for sovereign bonds.
+2. **Secondary Hypothesis:** Preprocessing methods (e.g., feature selection, winsorizing) enhance model performance.
+3. **Additional Hypotheses:**
+   - Macroeconomic indicators improve prediction accuracy.
+   - Momentum-based indicators like RSI, SMA, and Ichimoku Cloud enhance trading strategies.
+   - Regime-specific strategies yield better results.
+
+---
 
 ## Technical Implementation
 
 ### Data Integration Framework
 
-The analysis incorporates data from multiple authoritative sources to create a comprehensive view of market conditions. For macroeconomic indicators, we utilize the Federal Reserve Economic Data (FRED) database, collecting critical metrics including:
+The dataset spans decades of historical data:
+- **U.S. Treasury Bonds:** CRSP data from 1993 to 2018.
+- **Australian 10-Year Bonds:** Investing.com data from 1992 to 2023.
 
-Consumer Price Index (CPI) data provides insight into inflation trends, while Producer Price Index (PPI) offers early signals of price pressures in the production pipeline. The Federal Funds Rate and Unemployment Rate data help contextualize monetary policy and economic conditions. We pay particular attention to the 10-Year Minus 2-Year Treasury Spread as a leading indicator of economic cycles.
+#### Data Sources
+- **Macroeconomic indicators:** Federal Reserve Economic Data (FRED).
+- **Technical indicators:** Derived from bond yield data using Python libraries like TA-Lib.
 
-For sovereign bond yields, we source data from CRSP covering October 1993 through June 2018, providing a robust historical dataset for model training and validation. The Australian market analysis uses data from Investing.com spanning January 1992 to December 2023, enabling cross-market comparison and strategy validation.
+#### Data Preprocessing
+- **Imputation:** Addressing missing values with KNN and expanding windows.
+- **Outlier Treatment:** Winsorizing extreme outliers.
+- **Normalization:** Standardizing features using Z-score.
+
+#### Indicator Framework
+1. **Macroeconomic Indicators:** CPI, PPI, Federal Funds Rate, 10-Year Minus 2-Year Spread.
+2. **Technical Indicators:** SMA, EMA, RSI, MACD, Bollinger Bands, Ichimoku Cloud.
+
+![Placeholder for Data Framework Diagram](images/ma.png)
+
+![Placeholder for Data Framework Diagram](images/rsi.png)
+
+![Placeholder for Data Framework Diagram](images/macd.png)
+
+![Placeholder for Data Framework Diagram](images/bb.png)
+
+![Placeholder for Data Framework Diagram](images/bb2.png)
+
+![Placeholder for Data Framework Diagram](images/ichimoku.png)
 
 ### Model Architecture
 
-The heart of our analysis lies in the sophisticated interplay between multiple modeling approaches. Our Lasso regression implementation operates within an expanding window framework, allowing for dynamic feature selection that adapts to changing market conditions. This is complemented by LightGBM's capability to capture non-linear relationships in the data.
+#### 1. **Lasso Regression**
+- Implements an expanding window framework for dynamic feature selection.
+- Identifies stable features across different time periods.
 
-The feature selection process incorporates multiple validation techniques:
+#### 2. **LightGBM**
+- Captures non-linear interactions between macroeconomic and technical variables.
+- Uses grid search for parameter tuning.
 
+#### Feature Validation Example
 ```python
 def validate_features(df, features, window_size):
-    """
-    Comprehensive feature validation using multiple statistical tests
-    """
     results = {}
     for feature in features:
-        # Granger causality testing
+        # Granger causality and cointegration testing
         gc_result = granger_causality_test(df[['yield', feature]], maxlag=window_size)
-        
-        # Cointegration analysis for macro indicators
-        if feature in macro_indicators:
-            coint_result = coint_johansen(df[['yield', feature]], det_order=0, k_ar_diff=window_size)
-            
-        results[feature] = {
-            'granger_p_value': gc_result[0]['ssr_ftest'][1],
-            'cointegration_stat': coint_result.lr1[0] if feature in macro_indicators else None
-        }
-    
+        ...
+        results[feature] = {'granger_p_value': gc_result['p_value']}
     return results
 ```
 
 ### Regime Detection and Signal Generation
 
-A key innovation in our approach is the implementation of a Hidden Markov Model for regime detection. The model uses a two-state framework to classify market conditions into high and low volatility regimes, enabling more nuanced strategy adaptation:
+#### Hidden Markov Models (HMM)
+- Classifies market conditions into **low** and **high volatility** regimes.
+- Incorporates rolling volatility as a key feature.
 
-```python
-class RegimeDetector:
-    def __init__(self, n_regimes=2):
-        self.model = GaussianHMM(n_components=n_regimes, covariance_type="diag")
-        
-    def fit_transform(self, returns, volatility):
-        X = np.column_stack([returns, volatility])
-        self.model.fit(X)
-        states = self.model.predict(X)
-        
-        # Classify regimes based on volatility levels
-        volatility_by_state = [volatility[states == i].mean() for i in range(self.n_regimes)]
-        self.low_vol_state = np.argmin(volatility_by_state)
-        
-        return states
-```
+![Placeholder for Regime Detection Visualization](images/regime.png)
 
-For signal generation, we implement a sophisticated Ichimoku Cloud analysis system that adapts to detected market regimes. The system calculates key components including Tenkan-sen (Conversion Line), Kijun-sen (Base Line), and Senkou Spans A and B, with parameters optimized for bond market characteristics.
+#### Signal Generation
+Using Ichimoku Cloud components:
+1. **Bullish Signal:** Tenkan-sen crosses above Kijun-sen, predicted price above Senkou Spans.
+2. **Bearish Signal:** Tenkan-sen crosses below Kijun-sen, predicted price below Senkou Spans.
+
+
+---
 
 ## Performance Analysis
 
-Our model evaluation reveals several interesting patterns in prediction accuracy across different market regimes. In the low volatility regime, the Lasso model achieved an MSE of 0.0010, significantly outperforming the high volatility regime's MSE of 0.0016. The overall model demonstrated robust performance with an MSE of 0.0015 across all market conditions.
+### U.S. Market Results
+- **Lasso:**
+  - Overall MSE: 0.0015.
+  - Low Volatility MSE: 0.0010.
+  - High Volatility MSE: 0.0016.
+- **Signal Statistics:**
+  - Precision: 0.5000, Recall: 0.7500, F1 Score: 0.6000.
 
-Signal generation statistics show promising directional accuracy, with 31 total signals generated during the testing period. While the raw directional accuracy of 0.4839 might seem modest, the strategy's precision of 0.5000 and recall of 0.7500 suggest effective signal filtering. The F1 Score of 0.6000 indicates a balanced trade-off between precision and recall.
+### Ichimoku Cloud Insights
+- 31 signals generated:
+  - **Buy Signals:** 24.
+  - **Sell Signals:** 7.
 
-### Australian Market Extension
+![Placeholder for Performance Graph](images/pred.png)
 
-The model's application to the Australian sovereign bond market provides valuable insights into cross-market applicability. With a directional accuracy of 0.5484 and improved precision metrics (0.5600), the strategy shows potential for geographical expansion. The higher recall rate of 0.8235 in the Australian market suggests particularly effective signal generation in this context.
+---
+
+## Market Extensions
+
+### Australian Market Results
+- **Directional Accuracy:** 0.5484.
+- **Precision:** 0.5600, **Recall:** 0.8235, **F1 Score:** 0.6667.
+- Demonstrates the potential for geographical scalability of the model.
+
+![Placeholder for Australian Market Visualization](images/aus_pred.png)
+
+### Challenges and Observations
+- Signals in high volatility regimes showed lower accuracy.
+- Further tuning is required to adapt to country-specific market dynamics.
+
+---
 
 ## Future Development
 
-Our research points to several promising avenues for future enhancement. The current implementation would benefit from more sophisticated parameter optimization techniques, particularly for the Ichimoku Cloud components. We also see potential in developing more advanced regime detection methods that could incorporate additional market factors beyond volatility.
+1. **Parameter Optimization:** Advanced techniques for Ichimoku Cloud components.
+2. **Regime-Specific Models:** Enhancing feature selection for low and high volatility periods.
+3. **Alternative Data:** Incorporating sentiment analysis and alternative datasets.
+4. **Cross-Market Analysis:** Expanding to additional sovereign bond markets.
 
-The integration of alternative data sources and more sophisticated machine learning architectures could further improve predictive accuracy. Additionally, expanding the cross-market analysis to other sovereign bond markets could provide valuable insights into the strategy's generalizability.
+---
 
-## Technical Requirements
+## Usage
 
-The implementation requires Python 3.7 or higher and relies on several specialized libraries for financial analysis and machine learning. Key dependencies include pandas for data manipulation, scikit-learn for core machine learning functionality, lightgbm for gradient boosting, and hmmlearn for regime detection.
+### Prerequisites
+- **Python Version:** 3.7+
+- **Key Libraries:**
+  - `pandas`, `numpy`, `scikit-learn`, `lightgbm`, `hmmlearn`
+
+### Installation
+Clone this repository and install dependencies:
+```bash
+git clone https://github.com/your-repo/bond-yield-prediction.git
+cd bond-yield-prediction
+pip install -r requirements.txt
+```
+
+### Running the Model
+```bash
+python main.py --data ./data/sovereign_bonds.csv --model Lasso
+```
+
+---
 
 ## Acknowledgments
 
-This research was conducted as part of the FIN 554 course at the University of Illinois Urbana-Champaign. The authors gratefully acknowledge the support and guidance received throughout the project.
+This research was conducted as part of the **FIN 554 Course** at the University of Illinois Urbana-Champaign. Special thanks to Prof. Peterson for his consistence support and mentorship.
+
+---
+

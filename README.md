@@ -2,6 +2,7 @@
 
 A sophisticated quantitative analysis framework for sovereign bond markets that combines machine learning techniques with traditional financial indicators. This research explores the predictive power of advanced modeling techniques while incorporating both technical and macroeconomic factors to develop robust trading strategies.
 
+---
 ## Team
 
 <div align="center">

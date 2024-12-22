@@ -210,7 +210,7 @@ Using Ichimoku Cloud components:
 
 ## Acknowledgments
 
-This research was conducted as part of the **FIN 554 Course** at the University of Illinois Urbana-Champaign. Special thanks to Prof. Peterson for his consistence support and mentorship.
+This research was conducted as part of the **FIN 554 Course** at the University of Illinois Urbana-Champaign. Special thanks to Prof. Peterson for his consistent support and mentorship.
 
 ---
 

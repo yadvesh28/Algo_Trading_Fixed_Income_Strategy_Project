@@ -14,6 +14,7 @@ Email: [gav3@illinois.edu](mailto:gav3@illinois.edu)
 LinkedIn: [https://www.linkedin.com/in/ganeshashwinvv/](https://www.linkedin.com/in/ganeshashwinvv/)
 
 I am a Master's candidate in Financial Mathematics at the University of Illinois Urbana-Champaign, specializing in quantitative finance and advanced analytics for financial decision-making. With a Chartered Accountant certification and professional expertise in corporate development and financial advisory, I have optimized processes and delivered impactful results in valuation and strategic finance working with the CFO office at Cavinkare and complex accounting advisory branch at Grant Thornton.
+
 ---
 
 <div align="center">
@@ -34,7 +35,7 @@ I am a Master's candidate in Finance at the University of Illinois Urbana-Champa
 </div>
 
 Email: [kcdesai2@illinois.edu](mailto:kcdesai2@illinois.edu)  
-LinkedIn: [https://www.linkedin.com/in/krish-desai-4447971b3](https://www.linkedin.com/in/krish-desai-4447971b3)
+LinkedIn: [https://www.linkedin.com/in/krish-desai-4447971b3](https://www.linkedin.com/in/krish-desai-4447971b3/)
 
 A highly motivated  individual with a strong academic background in financial mathematics and computer science. Eager to contribute technical expertise and contribute to innovative solutions. A quick learner with a strong work ethic and a collaborative spirit, always seeking a challenging problem in a dynamic environment.
 

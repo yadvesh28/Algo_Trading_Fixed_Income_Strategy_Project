@@ -1,93 +1,216 @@
-# FIN554_Algo_Trading_strategy_Fall_2024_Group_05
+# Sovereign Bonds Analysis Strategy Project (FIN 554)
 
+This repository contains the complete framework, data, and analysis for predicting sovereign 10-Year bond yields using advanced machine learning techniques. By integrating macroeconomic indicators and technical analysis, we explore whether Lasso regression and LightGBM models outperform traditional methods in different markets, including the U.S. and Australia.
 
+---
+## Team
 
-## Getting started
+<div align="center">
+<img src="images/ganesh_img.jpg" width="200" height="auto" alt="Ganesh Ashwin Vadari Venkata">
+<p><strong>Ganesh Ashwin Vadari Venkata</strong></p>
+</div>
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+Email: [gav3@illinois.edu](mailto:gav3@illinois.edu)  
+LinkedIn: [https://www.linkedin.com/in/ganeshashwinvv/](https://www.linkedin.com/in/ganeshashwinvv/)
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+I am a Master's candidate in Financial Mathematics at the University of Illinois Urbana-Champaign, specializing in quantitative finance and advanced analytics for financial decision-making. With a Chartered Accountant certification and professional expertise in corporate development and financial advisory, I have optimized processes and delivered impactful results in valuation and strategic finance working with the CFO office at Cavinkare and complex accounting advisory branch at Grant Thornton.
 
-## Add your files
+---
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+<div align="center">
+<img src="images/gaurav_img.jpeg" width="200" height="auto" alt="Gaurav Ghosh">
+<p><strong>Gaurav Ghosh</strong></p>
+</div>
 
+Email: [gauravg4@illinois.edu](mailto:gauravg4@illinois.edu)  
+LinkedIn: [https://www.linkedin.com/in/gauravg29/](https://www.linkedin.com/in/gauravg29/)
+
+I am a Master's candidate in Finance at the University of Illinois Urbana-Champaign, with expertise in fixed-income analysis, portfolio risk monitoring, and financial modeling. A Chartered Financial Analyst Level II candidate, i possess advanced technical skills in Python, R, and Tableau with experience in regulatory compliance, auditing, and options trading. I am passionate about leveraging data-driven insights to enhance investment strategies and optimize portfolio performance under diverse market conditions.
+
+---
+
+<div align="center">
+<img src="images/krish_img.jpeg" width="200" height="auto" alt="Krish Desai">
+<p><strong>Krish Desai</strong></p>
+</div>
+
+Email: [kcdesai2@illinois.edu](mailto:kcdesai2@illinois.edu)  
+LinkedIn: [https://www.linkedin.com/in/krish-desai-4447971b3](https://www.linkedin.com/in/krish-desai-4447971b3/)
+
+A highly motivated  individual with a strong academic background in financial mathematics and computer science. Eager to contribute technical expertise and contribute to innovative solutions. A quick learner with a strong work ethic and a collaborative spirit, always seeking a challenging problem in a dynamic environment.
+
+---
+
+<div align="center">
+<img src="images/DSC05522.JPG" width="200" height="auto" alt="Yadvesh Yadav">
+<p><strong>Yadvesh Yadav</strong></p>
+</div>
+
+Email: [yyada@illinois.edu](mailto:yyada@illinois.edu)  
+LinkedIn: [https://www.linkedin.com/in/yadvesh/](https://www.linkedin.com/in/yadvesh/)
+
+As a Master's student in Financial Mathematics at the University of Illinois Urbana-Champaign, with a background as a Data Science Engineer, I specialize in financial data analysis, predictive modeling, and algorithmic trading. My passion lies in leveraging mathematical and computational techniques to develop innovative, quantitative trading strategies and solutions.
+
+---
+
+## Project Overview
+
+This research evaluates the predictive power of machine learning models—specifically Lasso and LightGBM—for forecasting sovereign bond yields. It incorporates diverse inputs, including:
+- **Macroeconomic indicators:** CPI, PPI, Federal Funds Rate, Unemployment Rate.
+- **Technical indicators:** Moving averages, RSI, MACD, Ichimoku Cloud.
+
+Key focus areas include:
+- **Preprocessing techniques:** Winsorizing, exponential smoothing.
+- **Signal generation:** Combining machine learning outputs with Ichimoku Cloud indicators.
+- **Regime detection:** Classifying high and low volatility market conditions using Hidden Markov Models (HMM).
+
+This research builds upon existing bond pricing literature and extends it with modern ML frameworks.
+
+---
+
+## Research Foundations
+
+### Key Influences
+1. **Dubrov (2015):** Monte Carlo simulations for exotic bond pricing.
+2. **Ganguli & Dunnmon (2017):** Corporate bond price prediction using regression and neural networks.
+3. **Hanna (2016):** Predicting junk bond defaults with Random Forest models.
+
+### Hypotheses
+1. **Main Hypothesis:** Machine learning models can outperform traditional forecasting techniques for sovereign bonds.
+2. **Secondary Hypothesis:** Preprocessing methods (e.g., feature selection, winsorizing) enhance model performance.
+3. **Additional Hypotheses:**
+   - Macroeconomic indicators improve prediction accuracy.
+   - Momentum-based indicators like RSI, SMA, and Ichimoku Cloud enhance trading strategies.
+   - Regime-specific strategies yield better results.
+
+---
+
+## Technical Implementation
+
+### Data Integration Framework
+
+The dataset spans decades of historical data:
+- **U.S. Treasury Bonds:** CRSP data from 1993 to 2018.
+- **Australian 10-Year Bonds:** Investing.com data from 1992 to 2023.
+
+#### Data Sources
+- **Macroeconomic indicators:** Federal Reserve Economic Data (FRED).
+- **Technical indicators:** Derived from bond yield data using Python libraries like TA-Lib.
+
+#### Data Preprocessing
+- **Imputation:** Addressing missing values with KNN and expanding windows.
+- **Outlier Treatment:** Winsorizing extreme outliers.
+- **Normalization:** Standardizing features using Z-score.
+
+#### Indicator Framework
+1. **Macroeconomic Indicators:** CPI, PPI, Federal Funds Rate, 10-Year Minus 2-Year Spread.
+2. **Technical Indicators:** SMA, EMA, RSI, MACD, Bollinger Bands, Ichimoku Cloud.
+
+![Placeholder for Data Framework Diagram](images/ma.png)
+
+![Placeholder for Data Framework Diagram](images/rsi.png)
+
+![Placeholder for Data Framework Diagram](images/macd.png)
+
+![Placeholder for Data Framework Diagram](images/bb.png)
+
+![Placeholder for Data Framework Diagram](images/bb2.png)
+
+![Placeholder for Data Framework Diagram](images/ichimoku.png)
+
+### Model Architecture
+
+#### 1. **Lasso Regression**
+- Implements an expanding window framework for dynamic feature selection.
+- Identifies stable features across different time periods.
+
+#### 2. **LightGBM**
+- Captures non-linear interactions between macroeconomic and technical variables.
+- Uses grid search for parameter tuning.
+
+#### Feature Validation Example
+```python
+def validate_features(df, features, window_size):
+    results = {}
+    for feature in features:
+        # Granger causality and cointegration testing
+        gc_result = granger_causality_test(df[['yield', feature]], maxlag=window_size)
+        ...
+        results[feature] = {'granger_p_value': gc_result['p_value']}
+    return results
 ```
-cd existing_repo
-git remote add origin https://gitlab.engr.illinois.edu/yyada/fin554_algo_trading_strategy_fall_2024_group_05.git
-git branch -M main
-git push -uf origin main
-```
 
-## Integrate with your tools
+### Regime Detection and Signal Generation
 
-- [ ] [Set up project integrations](https://gitlab.engr.illinois.edu/yyada/fin554_algo_trading_strategy_fall_2024_group_05/-/settings/integrations)
+#### Hidden Markov Models (HMM)
+- Classifies market conditions into **low** and **high volatility** regimes.
+- Incorporates rolling volatility as a key feature.
 
-## Collaborate with your team
+![Placeholder for Regime Detection Visualization](images/regime.png)
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+#### Signal Generation
+Using Ichimoku Cloud components:
+1. **Bullish Signal:** Tenkan-sen crosses above Kijun-sen, predicted price above Senkou Spans.
+2. **Bearish Signal:** Tenkan-sen crosses below Kijun-sen, predicted price below Senkou Spans.
 
-## Test and Deploy
 
-Use the built-in continuous integration in GitLab.
+---
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+## Performance Analysis
 
-***
+### U.S. Market Results
+- **Lasso:**
+  - Overall MSE: 0.0015.
+  - Low Volatility MSE: 0.0010.
+  - High Volatility MSE: 0.0016.
+- **Signal Statistics:**
+  - Precision: 0.5000, Recall: 0.7500, F1 Score: 0.6000.
 
-# Editing this README
+### Ichimoku Cloud Insights
+- 31 signals generated:
+  - **Buy Signals:** 24.
+  - **Sell Signals:** 7.
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
+![Placeholder for Performance Graph](images/pred.png)
 
-## Suggestions for a good README
+---
 
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+## Market Extensions
 
-## Name
-Choose a self-explaining name for your project.
+### Australian Market Results
+- **Directional Accuracy:** 0.5484.
+- **Precision:** 0.5600, **Recall:** 0.8235, **F1 Score:** 0.6667.
+- Demonstrates the potential for geographical scalability of the model.
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+![Placeholder for Australian Market Visualization](images/aus_pred.png)
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+### Challenges and Observations
+- Signals in high volatility regimes showed lower accuracy.
+- Further tuning is required to adapt to country-specific market dynamics.
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+---
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+## Future Development
+
+1. **Parameter Optimization:** Advanced techniques for Ichimoku Cloud components.
+2. **Regime-Specific Models:** Enhancing feature selection for low and high volatility periods.
+3. **Alternative Data:** Incorporating sentiment analysis and alternative datasets.
+4. **Cross-Market Analysis:** Expanding to additional sovereign bond markets.
+
+---
 
 ## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+### Prerequisites
+- **Python Version:** 3.7+
+- **Key Libraries:**
+  - `pandas`, `numpy`, `scikit-learn`, `lightgbm`, `hmmlearn`
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+---
 
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
+## Acknowledgments
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
+This research was conducted as part of the **FIN 554 Course** at the University of Illinois Urbana-Champaign. Special thanks to Prof. Peterson for his consistence support and mentorship.
 
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
+---
 
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.

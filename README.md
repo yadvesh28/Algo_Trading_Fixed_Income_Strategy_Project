@@ -43,7 +43,7 @@ A highly motivated  individual with a strong academic background in financial ma
 
 <div align="center">
 <img src="images/DSC05522.JPG" width="200" height="auto" alt="Yadvesh Yadav">
-<p><strong>Yadvesh Yadav</strong></p>
+<p><strong>Yadvesh Yadav [Team Lead]</strong></p>
 </div>
 
 Email: [yyada@illinois.edu](mailto:yyada@illinois.edu)  

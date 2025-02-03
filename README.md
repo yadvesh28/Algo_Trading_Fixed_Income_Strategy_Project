@@ -6,26 +6,14 @@ This repository contains the complete framework, data, and analysis for predicti
 ## Team
 
 <div align="center">
-<img src="images/ganesh_img.jpg" width="200" height="auto" alt="Ganesh Ashwin Vadari Venkata">
-<p><strong>Ganesh Ashwin Vadari Venkata</strong></p>
+<img src="images/DSC05522.JPG" width="200" height="auto" alt="Yadvesh Yadav">
+<p><strong>Yadvesh Yadav [Team Lead]</strong></p>
 </div>
 
-Email: [gav3@illinois.edu](mailto:gav3@illinois.edu)  
-LinkedIn: [https://www.linkedin.com/in/ganeshashwinvv/](https://www.linkedin.com/in/ganeshashwinvv/)
+Email: [yyada@illinois.edu](mailto:yyada@illinois.edu)  
+LinkedIn: [https://www.linkedin.com/in/yadvesh/](https://www.linkedin.com/in/yadvesh/)
 
-I am a Master's candidate in Financial Mathematics at the University of Illinois Urbana-Champaign, specializing in quantitative finance and advanced analytics for financial decision-making. With a Chartered Accountant certification and professional expertise in corporate development and financial advisory, I have optimized processes and delivered impactful results in valuation and strategic finance working with the CFO office at Cavinkare and complex accounting advisory branch at Grant Thornton.
-
----
-
-<div align="center">
-<img src="images/gaurav_img.jpeg" width="200" height="auto" alt="Gaurav Ghosh">
-<p><strong>Gaurav Ghosh</strong></p>
-</div>
-
-Email: [gauravg4@illinois.edu](mailto:gauravg4@illinois.edu)  
-LinkedIn: [https://www.linkedin.com/in/gauravg29/](https://www.linkedin.com/in/gauravg29/)
-
-I am a Master's candidate in Finance at the University of Illinois Urbana-Champaign, with expertise in fixed-income analysis, portfolio risk monitoring, and financial modeling. A Chartered Financial Analyst Level II candidate, i possess advanced technical skills in Python, R, and Tableau with experience in regulatory compliance, auditing, and options trading. I am passionate about leveraging data-driven insights to enhance investment strategies and optimize portfolio performance under diverse market conditions.
+As a Master's student in Financial Mathematics at the University of Illinois Urbana-Champaign, with a background as a Data Science Engineer, I specialize in financial data analysis, predictive modeling, and algorithmic trading. My passion lies in leveraging mathematical and computational techniques to develop innovative, quantitative trading strategies and solutions.
 
 ---
 
@@ -42,14 +30,26 @@ A highly motivated  individual with a strong academic background in financial ma
 ---
 
 <div align="center">
-<img src="images/DSC05522.JPG" width="200" height="auto" alt="Yadvesh Yadav">
-<p><strong>Yadvesh Yadav [Team Lead]</strong></p>
+<img src="images/gaurav_img.jpeg" width="200" height="auto" alt="Gaurav Ghosh">
+<p><strong>Gaurav Ghosh</strong></p>
 </div>
 
-Email: [yyada@illinois.edu](mailto:yyada@illinois.edu)  
-LinkedIn: [https://www.linkedin.com/in/yadvesh/](https://www.linkedin.com/in/yadvesh/)
+Email: [gauravg4@illinois.edu](mailto:gauravg4@illinois.edu)  
+LinkedIn: [https://www.linkedin.com/in/gauravg29/](https://www.linkedin.com/in/gauravg29/)
 
-As a Master's student in Financial Mathematics at the University of Illinois Urbana-Champaign, with a background as a Data Science Engineer, I specialize in financial data analysis, predictive modeling, and algorithmic trading. My passion lies in leveraging mathematical and computational techniques to develop innovative, quantitative trading strategies and solutions.
+I am a Master's candidate in Finance at the University of Illinois Urbana-Champaign, with expertise in fixed-income analysis, portfolio risk monitoring, and financial modeling. A Chartered Financial Analyst Level II candidate, i possess advanced technical skills in Python, R, and Tableau with experience in regulatory compliance, auditing, and options trading. I am passionate about leveraging data-driven insights to enhance investment strategies and optimize portfolio performance under diverse market conditions.
+
+---
+
+<div align="center">
+<img src="images/ganesh_img.jpg" width="200" height="auto" alt="Ganesh Ashwin Vadari Venkata">
+<p><strong>Ganesh Ashwin Vadari Venkata</strong></p>
+</div>
+
+Email: [gav3@illinois.edu](mailto:gav3@illinois.edu)  
+LinkedIn: [https://www.linkedin.com/in/ganeshashwinvv/](https://www.linkedin.com/in/ganeshashwinvv/)
+
+I am a Master's candidate in Financial Mathematics at the University of Illinois Urbana-Champaign, specializing in quantitative finance and advanced analytics for financial decision-making. With a Chartered Accountant certification and professional expertise in corporate development and financial advisory, I have optimized processes and delivered impactful results in valuation and strategic finance working with the CFO office at Cavinkare and complex accounting advisory branch at Grant Thornton.
 
 ---
 

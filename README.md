@@ -6,7 +6,7 @@ This repository contains the complete framework, data, and analysis for predicti
 ## Team
 
 <div align="center">
-<img src="images/DSC05522.JPG" width="200" height="auto" alt="Yadvesh Yadav">
+<img src="images/linkedin.png" width="200" height="auto" alt="Yadvesh Yadav">
 <p><strong>Yadvesh Yadav [Team Lead]</strong></p>
 </div>
 
